@@ -1,0 +1,58 @@
+
+
+.global gnd! vdd!
+********************************************************************************
+* Library          : GSB_6T_SRAM
+* Cell             : 6T_SRAM_CELL
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+.subckt _6t_sram_cell bl blb gnd_1 q qb vdd wl vt_bulk_n_gnd! vt_bulk_p_vdd!
+xm13 qb q gnd_1 vt_bulk_n_gnd! n25 w=0.36u l=0.26u nf=1 m=1
+xm14 q qb gnd_1 vt_bulk_n_gnd! n25 w=0.36u l=0.26u nf=1 m=1
+xm15 q wl bl vt_bulk_n_gnd! n25 w=0.36u l=0.26u nf=1 m=1
+xm16 blb wl qb vt_bulk_n_gnd! n25 w=0.36u l=0.26u nf=1 m=1
+xm11 qb q vdd vt_bulk_p_vdd! p25 w=0.36u l=0.26u nf=1 m=1
+xm12 q qb vdd vt_bulk_p_vdd! p25 w=0.36u l=0.26u nf=1 m=1
+.ends _6t_sram_cell
+
+********************************************************************************
+* Library          : GSB_6T_SRAM
+* Cell             : 6T_SRAM_CELL_tb
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+xi0 net12 net14 gnd! net1 net2 net9 net10 gnd! vdd! _6t_sram_cell
+v1 net9 gnd! dc=1
+v9 net14 gnd! dc=0 pulse ( 0 1 0.1n 0.1n 0.1n 5n 10n )
+v8 net12 gnd! dc=0 pulse ( 1 0 0.1n 0.1n 0.1n 5n 10n )
+v2 net10 gnd! dc=0 pulse ( 1 0 0.1n 0.1n 0.1n 20n 40n )
+
+
+
+
+
+
+
+
+.tran '10n' '200n' name=tran
+
+.option primesim_remove_probe_prefix = 0
+.probe v(*) i(*) level=1
+.probe tran v(net1) v(net10) v(net12) v(net14)
+
+.temp 25
+
+
+
+.option primesim_output=wdf
+
+
+.option parhier = LOCAL
+
+
+
+
+
