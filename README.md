@@ -33,7 +33,14 @@ The [Synopsys Custom Compiler™](https://www.synopsys.com/implementation-and-si
   SRAM takes two design aspects: the power dissipation and propagation delay in reading and writing the value into the SRAM cell. The power dissipated during read and write operation is dynamic power dissipation. It helps to determine the battery life of portable devices. The given circuit demonstrates six transistor SRAM cells, with 4 cross coupled transistors as memory storage cells, and the other two transistors as access transistors.
   
   These access transistors are connected to the bit line and bit line bar that are denoted by “BL & BLB”. And word line here denoted by “WL” is connected to access transistors when the word line is set on, the access transistors can be accessed and similarly when a word line is set off the content of the memory comes set to hold state as the access transistors are turned off, and as a result, the data will remain unchanged in the cell, for the write operation bit line and bit line bar acts as input lines and for reading operation these lines would act as output lines.
+  
+  ### Read and write operation 
+   Read operation : Both access transistors and  are closed while activating the word line. When, cell(crossed inverters) comes to state 1 then signal flows in high amount on bitline(BL) and other side signal flows in low amount on bitline bar(BLB). Opposite is true when cell goes to state 0. Finally both BL and BLB get complement of each other’s.
+Sense/write, which are connected in the rear side of two bit line, they monitor their states and finally convert into output respectively.
 
+  write operation : In the write operation, Sense/Write circuit allows to drive bit lines BL and it complement BLB, and then it provides accurate values on bit line BLB and BLB as well as go to activate word line(the data is written into the cell once the word line(WL) is activated and deactivated in a span of time).
+  
+  These operations can be observed in the below [waveforms](#waveforms)
 
 ## Circuit Design
 
@@ -47,14 +54,20 @@ The symbol of 6T SRAM cell with analysis.
 
 ## Waveforms
  
- The transient analysis of the SRAM cell.
+ ### transient analysis of the SRAM cell.
  
- 1. With BL starting with '0' and BLB starting with '1'.
+ 1. With BL starting with '0' and BLB starting with '1', we can observe the basic working of the SRAM cell with respect to time.
+ the Q value changing only when the Write line is active, and rest of the time cell is known to be at static or hold state.
   ![analysis_1](https://github.com/bharath19-gs/6T_SRAM_CELL/blob/main/6T_SRAM/transient_analysis_6T_SRAM.png)
  
  2. With BL starting with '1' and BLB starting with '0'.
   ![analysis_2](https://github.com/bharath19-gs/6T_SRAM_CELL/blob/main/6T_SRAM/6T_SRAM_transcient_analysis.png)
 
+### Read and write operations of SRAM cell.
+1. read operation : we can see the reading being done by the bit line(BL) and bit line bar (BLB), as here while simulating we are giving a initial value to Q, and observing it at BL, we need use a precharged capacitor to do the read operation on the SRAM cell.
+  ![read_operation](https://github.com/bharath19-gs/6T_SRAM_CELL/blob/main/6T_SRAM/Read_operation.png)  
+2. write operation : we can see the writing being done as soon as the write line gets activated the bitline bar(BLB) acts as a input line which inturn causes the value in teh cell to change to the value that is on the input line.
+   ![write_operation](https://github.com/bharath19-gs/6T_SRAM_CELL/blob/main/6T_SRAM/write_operation.png)
 
 ## Spice Netlist
 
