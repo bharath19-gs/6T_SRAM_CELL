@@ -38,6 +38,7 @@ The [Synopsys Custom Compiler™](https://www.synopsys.com/implementation-and-si
 ### Waveforms
 
 
+
 ### Acknowledgement
 
 1. Kunal Ghosh, Co-founder, VSD Corp. Pvt. Ltd. - kunalpghosh@gmail.com
@@ -47,3 +48,7 @@ The [Synopsys Custom Compiler™](https://www.synopsys.com/implementation-and-si
 
 
 ### References
+
+[1] Design and performance analysis of 6T SRAM cell on different CMOS technologies with stability characterization Shikha Saun1 and Hemant Kumar1
+
+[2] SRAM operation, https://www.iue.tuwien.ac.at/phd/entner/node34.html 
