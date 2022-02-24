@@ -37,11 +37,11 @@ The [Synopsys Custom Compiler™](https://www.synopsys.com/implementation-and-si
 
 ## Circuit Design
 
-The basic 6T SRAM cell basic design
+The basic 6T SRAM cell basic design.
 
 ![image](https://github.com/bharath19-gs/6T_SRAM_CELL/blob/main/6T_SRAM/6T_SRAM_schematic.png)
 
-The symbol of 6T SRAM cell with analysis
+The symbol of 6T SRAM cell with analysis.
 
 ![symbol](https://github.com/bharath19-gs/6T_SRAM_CELL/blob/main/6T_SRAM/6T_SRAM_analysis.png)
 
@@ -49,11 +49,12 @@ The symbol of 6T SRAM cell with analysis
  
  The transient analysis of the SRAM cell.
  
- 1. With BL starting with '0' and BLB starting with '1'
+ 1. With BL starting with '0' and BLB starting with '1'.
   ![analysis_1](https://github.com/bharath19-gs/6T_SRAM_CELL/blob/main/6T_SRAM/transient_analysis_6T_SRAM.png)
  
- 2. With BL starting with '1' and BLB starting with '0'
+ 2. With BL starting with '1' and BLB starting with '0'.
   ![analysis_2](https://github.com/bharath19-gs/6T_SRAM_CELL/blob/main/6T_SRAM/6T_SRAM_transcient_analysis.png)
+
 
 ## Spice Netlist
 
